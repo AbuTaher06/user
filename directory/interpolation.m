@@ -1,0 +1,12 @@
+F=input('Enter the frequency of the signal: '); 
+P=input('Enter the interpolator factor: '); 
+N=input('Enter the length of the signal: '); 
+t=0:1:N-1; 
+X = sin(2*pi*F*t); 
+subplot(2,1,1); 
+stem(X); 
+title("Original signal"); 
+i=interp(X,P); 
+subplot(2,1,2); 
+stem(i); 
+title("Interpolated signal"); 
