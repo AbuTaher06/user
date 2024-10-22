@@ -1,0 +1,25 @@
+x = [2 8 5; 9 7 1];   % Your matrix
+
+% Standard deviation of each column
+std_columns = std(x, 0, 1);
+disp('Standard deviation of each column:');
+disp(std_columns);  % Display the standard deviation values for each column
+
+% Standard deviation of each row
+std_rows = std(x, 0, 2);
+disp('Standard deviation of each row:');
+disp(std_rows);  % Display the standard deviation values for each row
+
+
+
+//for list
+A = [2, 8, 5, 9, 7, 1];  % Your array
+
+% Calculate the sample standard deviation
+sd_sample = std(A);  % Default is normalized by N-1
+disp(['Sample Standard Deviation: ', num2str(sd_sample)]);
+
+% Calculate the population standard deviation
+sd_population = std(A, 1);  % Normalized by N
+disp(['Population Standard Deviation: ', num2str(sd_population)]);
+
