@@ -1,0 +1,23 @@
+x = [1 2 3 4 10 10];  % Your data
+sum_x = sum(x);        % Step 1: Sum the elements
+n = length(x);         % Step 2: Number of elements
+mean_x = sum_x / n;    % Step 3: Calculate mean
+disp(mean_x);          % Display the result
+
+
+//median
+x = [1 2 3 4 10 10];  % Your data
+sorted_x = sort(x);    % Step 1: Sort the elements
+n = length(sorted_x);  % Step 2: Number of elements
+
+if mod(n, 2) == 1
+    % Step 3a: If odd, pick the middle element
+    median_x = sorted_x((n+1)/2);
+else
+    % Step 3b: If even, average the two middle elements
+    middle1 = sorted_x(n/2);
+    middle2 = sorted_x(n/2 + 1);
+    median_x = (middle1 + middle2) / 2;
+end
+
+disp(median_x);        % Display the result
