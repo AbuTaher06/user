@@ -1,0 +1,53 @@
+% Sample data
+x = [2, 8, 5, 9, 7, 1];
+y = [3, 6, 5, 8, 6, 2];
+
+% Calculate correlation coefficient
+correlation_matrix = corrcoef(x, y); % Returns a matrix of correlation coefficients
+disp('Correlation Matrix:');
+disp(correlation_matrix);
+
+% Calculate covariance
+covariance_matrix = cov(x, y); % Returns a matrix of covariance
+disp('Covariance Matrix:');
+disp(covariance_matrix);
+
+% Calculate skewness
+skewness_value = skewness(x);
+disp(['Skewness: ', num2str(skewness_value)]);
+
+% Calculate kurtosis
+kurtosis_value = kurtosis(x);
+disp(['Kurtosis: ', num2str(kurtosis_value)]);
+
+
+
+//manually 
+% Sample data
+x = [2, 8, 5, 9, 7, 1];
+y = [3, 6, 5, 8, 6, 2];
+
+% 1. Calculate Means
+mean_x = sum(x) / length(x);
+mean_y = sum(y) / length(y);
+
+% 2. Calculate Covariance
+covariance = sum((x - mean_x) .* (y - mean_y)) / (length(x) - 1);
+disp(['Covariance: ', num2str(covariance)]);
+
+% 3. Calculate Standard Deviations
+std_x = sqrt(sum((x - mean_x).^2) / (length(x) - 1));
+std_y = sqrt(sum((y - mean_y).^2) / (length(y) - 1));
+
+% 4. Calculate Correlation
+correlation = covariance / (std_x * std_y);
+disp(['Correlation: ', num2str(correlation)]);
+
+% 5. Calculate Skewness
+n = length(x);
+skewness_value = (n / ((n - 1) * (n - 2))) * sum(((x - mean_x) ./ std_x).^3);
+disp(['Skewness: ', num2str(skewness_value)]);
+
+% 6. Calculate Kurtosis
+kurtosis_value = (n * (n + 1) * sum(((x - mean_x) ./ std_x).^4)) / ((n - 1) * (n - 2) * (n - 3))) - (3 * ((n - 1)^2) / ((n - 2) * (n - 3)));
+disp(['Kurtosis: ', num2str(kurtosis_value)]);
