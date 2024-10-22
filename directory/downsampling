@@ -1,0 +1,57 @@
+% Clear workspace and command window
+clear; clc;
+
+% 1. Create a sample signal
+fs = 100;               % Original sampling frequency (Hz)
+t = 0:1/fs:1-1/fs;     % Time vector (1 second duration)
+f = 5;                  % Frequency of the signal (5 Hz)
+original_signal = sin(2 * pi * f * t); % Original sinusoidal signal
+
+% 2. Compute the frequency spectrum of the original signal
+N = length(original_signal); % Number of samples
+original_spectrum = abs(fft(original_signal)); % FFT of original signal
+f_axis = (0:N-1) * (fs/N);  % Frequency axis
+
+% 3. Perform downsampling
+downsample_factor = 4;        % Downsampling factor
+downsampled_signal = original_signal(1:downsample_factor:end); % Select every M-th sample
+
+% 4. Compute the frequency spectrum of the downsampled signal
+N_downsampled = length(downsampled_signal); % New number of samples
+downsampled_spectrum = abs(fft(downsampled_signal, N)); % FFT of downsampled signal (using original N for comparison)
+f_axis_downsampled = (0:N-1) * (fs / downsample_factor / N); % Frequency axis for downsampled
+
+% 5. Visualization
+figure;
+
+% Plot original signal and its spectrum
+subplot(2, 2, 1);
+plot(t, original_signal);
+title('Original Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+subplot(2, 2, 2);
+plot(f_axis, original_spectrum);
+title('Frequency Spectrum of Original Signal');
+xlabel('Frequency (Hz)');
+ylabel('Magnitude');
+xlim([0 fs/2]); % Limit x-axis to half the sampling frequency (Nyquist)
+
+% Plot downsampled signal and its spectrum
+t_downsampled = 0:1/(fs/downsample_factor):(length(downsampled_signal)-1)/(fs/downsample_factor); % New time vector
+subplot(2, 2, 3);
+plot(t_downsampled, downsampled_signal);
+title('Downsampled Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+subplot(2, 2, 4);
+plot(f_axis_downsampled, downsampled_spectrum);
+title('Frequency Spectrum of Downsampled Signal');
+xlabel('Frequency (Hz)');
+ylabel('Magnitude');
+xlim([0 fs/(2*downsample_factor)]); % Limit x-axis to half the new sampling frequency (Nyquist)
+
+% Adjust figure layout
+sgtitle('Effect of Downsampling in Frequency Domain');
