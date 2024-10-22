@@ -1,0 +1,16 @@
+for i = fruits
+    disp(i)
+end
+disp(counter)
+
+
+Vectorized Approach
+r = [1, 1.2, 0.9, 0.7, 0.85, 0.9, 1.12, 0.56, 0.98]
+for counter = 1:1:length(r)
+	circleArea(i) = pi*r(i)^2;
+end
+circleAreas
+
+
+a = [3, 6, 9];
+areaSquare = a .^2
