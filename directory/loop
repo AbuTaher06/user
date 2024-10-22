@@ -14,3 +14,59 @@ circleAreas
 
 a = [3, 6, 9];
 areaSquare = a .^2
+
+
+//conditional
+aRandomValue = 44
+if  aRandomValue > 0
+     msgString = sprintf('The Random value is: %d', aRandomValue)
+elseif  aRandomValue < 0
+     msgString = sprintf('The Random value is: %d', aRandomValue)
+else 
+     msgString = "The random value is zero"
+end
+
+
+           Now Try for Yourself!
+Using a for loop and an if statement and given an array of vegetables, print out all the vegetables that are apples. Write the code in the space below. 
+fruits = ["apples", "pears", "pineapples", "apples"];
+
+for i = fruits
+    if i == "apples"
+        disp(i)
+    end
+end
+apples
+apples
+
+
+radius = 23% meters
+calculateType = 'Volume'
+switch calculateType
+    case 'Perimeter'
+        perimeter = 2*pi*radius
+    case 'Area'
+        area = pi*radius^2
+    case 'Volume'
+        volume = 4*pi*radius^3/3
+end
+
+
+
+
+sideLength = 6; % meters
+radius = 3.14;
+width = 5;
+length = 7;
+
+areaType = 'Square';
+switch areaType
+    case 'Square'
+        area = sideLength^2
+    case 'Circle'
+        area = pi*radius^2;
+    case 'Rectangle'
+        area = width*length;
+end
+	
+	area = 36
