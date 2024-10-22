@@ -1,0 +1,33 @@
+x = [2 8 5; 9 7 1];  % Your matrix
+
+max_x = max(x(:));    % Find the maximum value
+min_x = min(x(:));    % Find the minimum value
+
+disp(['Maximum: ', num2str(max_x)]);  % Display the maximum value
+disp(['Minimum: ', num2str(min_x)]);  % Display the minimum value
+
+
+//median value over each row of x
+
+x = [2 8 5; 9 7 1];   % Your matrix
+
+median_rows = median(x, 2);  % Find the median of each row (dimension 2)
+
+disp('Median of each row:');
+disp(median_rows);     % Display the median values for each row
+
+
+//mean according to column and row
+x = [2 8 5; 9 7 1];   % Your matrix
+
+% Mean of each column
+mean_columns = mean(x, 1);
+disp('Mean of each column:');
+disp(mean_columns);  % Display the mean values for each column
+
+% Mean of each row
+mean_rows = mean(x, 2);
+disp('Mean of each row:');
+disp(mean_rows);  % Display the mean values for each row
+
+
