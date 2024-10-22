@@ -1,0 +1,58 @@
+% Clear workspace and command window
+clear; clc;
+
+% 1. Create a sample signal
+fs = 100;               % Original sampling frequency (Hz)
+t = 0:1/fs:1-1/fs;     % Time vector (1 second duration)
+f = 5;                  % Frequency of the signal (5 Hz)
+original_signal = sin(2 * pi * f * t); % Original sinusoidal signal
+
+% 2. Compute the frequency spectrum of the original signal
+N = length(original_signal); % Number of samples
+original_spectrum = abs(fft(original_signal)); % FFT of original signal
+f_axis = (0:N-1) * (fs/N);  % Frequency axis
+
+% 3. Perform upsampling
+upsample_factor = 4;         % Upsampling factor
+upsampled_signal = zeros(1, length(original_signal) * upsample_factor); % Create upsampled signal
+upsampled_signal(1:upsample_factor:end) = original_signal; % Insert original samples
+
+% 4. Compute the frequency spectrum of the upsampled signal
+N_upsampled = length(upsampled_signal); % New number of samples
+upsampled_spectrum = abs(fft(upsampled_signal)); % FFT of upsampled signal
+f_axis_upsampled = (0:N_upsampled-1) * (fs / upsample_factor / N_upsampled); % Frequency axis for upsampled
+
+% 5. Visualization
+figure;
+
+% Plot original signal and its spectrum
+subplot(2, 2, 1);
+plot(t, original_signal);
+title('Original Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+subplot(2, 2, 2);
+plot(f_axis, original_spectrum);
+title('Frequency Spectrum of Original Signal');
+xlabel('Frequency (Hz)');
+ylabel('Magnitude');
+xlim([0 fs/2]); % Limit x-axis to half the sampling frequency (Nyquist)
+
+% Plot upsampled signal and its spectrum
+subplot(2, 2, 3);
+t_upsampled = 0:1/(fs*upsample_factor):(length(upsampled_signal)-1)/(fs*upsample_factor); % New time vector
+plot(t_upsampled, upsampled_signal);
+title('Upsampled Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+subplot(2, 2, 4);
+plot(f_axis_upsampled, upsampled_spectrum);
+title('Frequency Spectrum of Upsampled Signal');
+xlabel('Frequency (Hz)');
+ylabel('Magnitude');
+xlim([0 fs/(2*upsample_factor)]); % Limit x-axis to half the new sampling frequency (Nyquist)
+
+% Adjust figure layout
+sgtitle('Effect of Upsampling in Frequency Domain');
