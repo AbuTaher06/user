@@ -1,0 +1,41 @@
+v1 = [1 2 3];               % Row vector
+v2 = [1; 2; 3];             % Column vector
+v = 1:5;                    % Row vector from 1 to 5 with step size 1
+v = 1:2:9;                  % Row vector from 1 to 9 with step size 2
+v = linspace(0, 10, 5);      % 5 equally spaced points between 0 and 10
+v = logspace(1, 3, 4);       % Logarithmically spaced points between 10^1 and 10^3
+
+v_sum = v1 + v2;            % Element-wise addition
+v_diff = v1 - v2;           % Element-wise subtraction
+v_scalar_mult = 2 * v1;     % Scalar multiplication
+v_scalar_div = v1 / 2;      % Scalar division
+v_elem_mult = v1 .* v2;     % Element-wise multiplication
+v_elem_div = v1 ./ v2;      % Element-wise division
+
+dot_prod = dot(v1, v2);      % Dot product of v1 and v2
+cross_prod = cross(v1, v2);  % Cross product of v1 and v2 (for 3D vectors)
+
+  logical_v = v1 > 2;          % Logical comparison for elements greater than 2
+indices = find(v1 > 2);      % Find indices of elements satisfying condition
+
+                                                           elem = v1(3);                % Access 3rd element
+slice = v1(2:4);             % Slice vector from index 2 to 4
+multiple_elems = v1([1 3]);  % Access elements at index 1 and 3
+
+
+ sorted_v = sort(v1);         % Sort vector in ascending order
+sorted_v_desc = sort(v1, 'descend'); % Sort vector in descending order
+
+reshaped_v = reshape(v1, [1, 3]);    % Reshape vector to specified size
+repeated_v = repmat(v1, 1, 3);       % Repeat vector horizontally or vertically
+
+concat_h = [v1, v2];         % Concatenate row vectors horizontally
+concat_v = [v1; v2];         % Concatenate row vectors vertically
+
+v_len = length(v1);          % Length of the vector
+v_size = size(v1);           % Size (dimensions) of the vector
+
+flipped_v = flip(v1);        % Reverse the order of elements in the vector
+
+                                                           any_cond = any(v1 > 5);      % Returns true if any element satisfies the condition
+all_cond = all(v1 > 0);      % Returns true if all elements satisfy the condition
