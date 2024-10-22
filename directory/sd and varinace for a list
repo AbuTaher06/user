@@ -1,0 +1,25 @@
+% Step 1: Define the array
+x = [2, 8, 5, 9, 7, 1];
+
+% Step 2: Calculate the Mean
+n = length(x);                      % Number of elements
+mean_x = sum(x) / n;                % Mean calculation
+
+disp(['Mean: ', num2str(mean_x)]); % Display mean
+
+% Step 3: Calculate Variance
+% Calculate squared deviations from the mean
+squared_deviations = (x - mean_x).^2;
+
+% Sum of squared deviations
+sum_squared_deviations = sum(squared_deviations);
+
+% Variance calculation (using n-1 for sample variance)
+variance_x = sum_squared_deviations / (n - 1);
+
+disp(['Variance (sample): ', num2str(variance_x)]); % Display variance
+
+% Step 4: Calculate Standard Deviation
+std_deviation_x = sqrt(variance_x); % Standard deviation calculation
+
+disp(['Standard Deviation: ', num2str(std_deviation_x)]); % Display standard deviation
