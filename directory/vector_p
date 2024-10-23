@@ -39,3 +39,22 @@ flipped_v = flip(v1);        % Reverse the order of elements in the vector
 
                                                            any_cond = any(v1 > 5);      % Returns true if any element satisfies the condition
 all_cond = all(v1 > 0);      % Returns true if all elements satisfy the condition
+
+
+
+% Suppose you have a vector v
+v = [1; 2];
+
+% Compute A*v
+Av = A * v;
+
+% Check if A*v is a scalar multiple of v (i.e., λ * v)
+
+% Suppose you have a vector v
+v = [1; 2];
+
+% Compute A*v
+Av = A * v;
+
+% Check if A*v is a scalar multiple of v (i.e., λ * v)
+
